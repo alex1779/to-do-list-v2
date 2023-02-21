@@ -1,3 +1,5 @@
+import {  evaluateCheckBox } from './completed.js';
+
 class Task {
   constructor(description, completed, index) {
     this.description = description;
@@ -71,6 +73,8 @@ export function addEventclearAllButton() {
 
 export function manageBoxes(checkboxElem) {
   setValueTextAreaAlls();
+  // Here Evaluate CheckBoxes
+
   const parentDiv = checkboxElem.parentNode;
   const textChild = parentDiv.querySelector('.task');
   if (checkboxElem.checked) {
@@ -82,16 +86,18 @@ export function manageBoxes(checkboxElem) {
   } else {
     const strike = textChild.getElementsByTagName('strike')[0].innerHTML;
     textChild.innerHTML = strike;
-    // restore visual
+    // Restore Visual
     const textArea = parentDiv.querySelector('.textArea');
     textArea.style.display = 'none';
     const labelText = parentDiv.querySelector('.task');
     labelText.style.display = 'block';
-    // restore original icons
+    // Restore Original Icons
     restoreOriginalIcons();
-    // change background to white
+    // Change Background to White
     restoreBackgroundWhite();
   }
+  evaluateCheckBox();
+  console.log('manage boxes');
 }
 
 export function addEventsCheckBoxes() {
@@ -119,7 +125,7 @@ function restoreDataTExtArea(lilElem, labelTask, textArea) {
   });
 }
 
-export function deleteFromIcons() {
+export function addEventsdeleteFromIcons() {
   const iconDiv = document.querySelectorAll('.icon');
   iconDiv.forEach((icon) => {
     icon.addEventListener('click', () => {
@@ -176,7 +182,7 @@ export function createTask(tasksArray, obj) {
   scrapeAndSave();
   addEventsToLabels();
   addEventsCheckBoxes();
-  deleteFromIcons();
+  addEventsdeleteFromIcons();
 }
 
 export function addEventsNewTasks(tasksArray) {

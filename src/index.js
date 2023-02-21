@@ -1,7 +1,7 @@
-import './style.css';
+//import './style.css';
 import {
   addEventsToLabels, addEventsCheckBoxes, addEventsNewTasks, addEventclearAllButton,
-  deleteFromIcons,
+  addEventsdeleteFromIcons,
 } from './utils.js';
 
 window.onload = () => {
@@ -10,9 +10,9 @@ window.onload = () => {
   savedFormData = JSON.parse(savedFormData);
   if (savedFormData) {
     tasksArray = savedFormData;
-    const listContainer = document.querySelector('.todo-list');
+    const todoList = document.querySelector('.todo-list');
     tasksArray.forEach((todo) => {
-      listContainer.innerHTML += `<li>
+      todoList.innerHTML += `<li>
       <div class="taskCont">
         <input type="checkbox" class="checkBoxesTasks" id="checkbox${todo.index}">
         <div class="task" id="taskText${todo.index}">${todo.description}</div>
@@ -28,5 +28,9 @@ window.onload = () => {
   addEventsCheckBoxes();
   addEventsNewTasks(tasksArray);
   addEventclearAllButton();
-  deleteFromIcons();
+  addEventsdeleteFromIcons();
+
+
+
+  
 };

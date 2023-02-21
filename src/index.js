@@ -1,4 +1,4 @@
-//import './style.css';
+// import './style.css';
 import {
   addEventsToLabels, addEventsCheckBoxes, addEventsNewTasks, addEventclearAllButton,
   addEventsdeleteFromIcons,
@@ -29,8 +29,4 @@ window.onload = () => {
   addEventsNewTasks(tasksArray);
   addEventclearAllButton();
   addEventsdeleteFromIcons();
-
-
-
-  
 };

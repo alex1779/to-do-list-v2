@@ -1,4 +1,4 @@
-import {  evaluateCheckBox } from './completed.js';
+import { evaluateCheckBox } from './completed.js';
 
 class Task {
   constructor(description, completed, index) {
@@ -97,7 +97,6 @@ export function manageBoxes(checkboxElem) {
     restoreBackgroundWhite();
   }
   evaluateCheckBox();
-  console.log('manage boxes');
 }
 
 export function addEventsCheckBoxes() {

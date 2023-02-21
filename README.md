@@ -52,7 +52,9 @@
 
 > Here are some key features of the application :
 
-- **Structure list**
+- **Adding items from the input**
+- **Editing items**
+- **Delete items**
 *
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -99,7 +101,7 @@ Example commands:
 
 ```sh
   cd my-folder
-  git clone https://github.com/alex1779/To_do_list.git
+  git clone https://github.com/alex1779/to-do-list-v2.git
 ```
 
 -

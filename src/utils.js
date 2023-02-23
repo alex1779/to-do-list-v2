@@ -26,8 +26,7 @@ function scrapeAndSave() {
   tasks.forEach((label, index) => {
     const parentTaskCont = label.parentNode;
     const checkboxElem = parentTaskCont.querySelector('.checkBoxesTasks');
-    let checked = checkboxElem.checked;
-    const task = new Task(label.innerHTML, checked, index + 1);
+    const task = new Task(label.innerHTML, checkboxElem.checked, index + 1);
     tasksArray.push(task);
   });
   localStorage.removeItem('tasksList');
@@ -73,7 +72,6 @@ export function addEventclearAllButton() {
 }
 
 export function manageBoxes(checkboxElem) {
-
   setValueTextAreaAlls();
   const parentDiv = checkboxElem.parentNode;
   const textChild = parentDiv.querySelector('.task');
@@ -96,7 +94,7 @@ export function manageBoxes(checkboxElem) {
     // change background to white
     restoreBackgroundWhite();
   }
-  scrapeAndSave()
+  scrapeAndSave();
 }
 
 export function addEventsCheckBoxes() {

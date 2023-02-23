@@ -24,7 +24,9 @@ function scrapeAndSave() {
   const tasksArray = [];
   const tasks = document.querySelectorAll('.task');
   tasks.forEach((label, index) => {
-    const task = new Task(label.innerHTML, false, index + 1);
+    const parentTaskCont = label.parentNode;
+    const checkboxElem = parentTaskCont.querySelector('.checkBoxesTasks');
+    const task = new Task(label.innerHTML, checkboxElem.checked, index + 1);
     tasksArray.push(task);
   });
   localStorage.removeItem('tasksList');
@@ -92,6 +94,7 @@ export function manageBoxes(checkboxElem) {
     // change background to white
     restoreBackgroundWhite();
   }
+  scrapeAndSave();
 }
 
 export function addEventsCheckBoxes() {

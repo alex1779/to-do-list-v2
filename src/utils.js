@@ -1,5 +1,3 @@
-import { evaluateCheckBox } from './completed.js';
-
 class Task {
   constructor(description, completed, index) {
     this.description = description;
@@ -26,7 +24,10 @@ function scrapeAndSave() {
   const tasksArray = [];
   const tasks = document.querySelectorAll('.task');
   tasks.forEach((label, index) => {
-    const task = new Task(label.innerHTML, false, index + 1);
+    const parentTaskCont = label.parentNode;
+    const checkboxElem = parentTaskCont.querySelector('.checkBoxesTasks');
+    let checked = checkboxElem.checked;
+    const task = new Task(label.innerHTML, checked, index + 1);
     tasksArray.push(task);
   });
   localStorage.removeItem('tasksList');
@@ -72,9 +73,8 @@ export function addEventclearAllButton() {
 }
 
 export function manageBoxes(checkboxElem) {
-  setValueTextAreaAlls();
-  // Here Evaluate CheckBoxes
 
+  setValueTextAreaAlls();
   const parentDiv = checkboxElem.parentNode;
   const textChild = parentDiv.querySelector('.task');
   if (checkboxElem.checked) {
@@ -86,17 +86,17 @@ export function manageBoxes(checkboxElem) {
   } else {
     const strike = textChild.getElementsByTagName('strike')[0].innerHTML;
     textChild.innerHTML = strike;
-    // Restore Visual
+    // restore visual
     const textArea = parentDiv.querySelector('.textArea');
     textArea.style.display = 'none';
     const labelText = parentDiv.querySelector('.task');
     labelText.style.display = 'block';
-    // Restore Original Icons
+    // restore original icons
     restoreOriginalIcons();
-    // Change Background to White
+    // change background to white
     restoreBackgroundWhite();
   }
-  evaluateCheckBox();
+  scrapeAndSave()
 }
 
 export function addEventsCheckBoxes() {
@@ -124,7 +124,7 @@ function restoreDataTExtArea(lilElem, labelTask, textArea) {
   });
 }
 
-export function addEventsdeleteFromIcons() {
+export function deleteFromIcons() {
   const iconDiv = document.querySelectorAll('.icon');
   iconDiv.forEach((icon) => {
     icon.addEventListener('click', () => {
@@ -181,7 +181,7 @@ export function createTask(tasksArray, obj) {
   scrapeAndSave();
   addEventsToLabels();
   addEventsCheckBoxes();
-  addEventsdeleteFromIcons();
+  deleteFromIcons();
 }
 
 export function addEventsNewTasks(tasksArray) {

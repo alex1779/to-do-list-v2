@@ -69,15 +69,15 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 <!-- LIVE DEMO -->
 
-## 💻 Awesome books <a name="vgs-presentation"></a>
+## 🚀 Live Demo <a name="live-demo"></a>
 
-> Here you can see my presentation :
-
-- [N/A]()
+- [Live Deploy Page Link](https://alex1779.github.io/to-do-list-v2/dist/#live-demo)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- GETTING STARTED -->
 
